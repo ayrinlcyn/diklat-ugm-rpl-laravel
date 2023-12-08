@@ -11,14 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('pemesanan', function (Blueprint $table) {
+            $table->id();
+            $table->date('tanggal_pemesanan');
+            $table->integer('toko_id');
+            $table->integer('jumlah_barang');
+            $table->integer('total');
+            $table->timestamps();
+        });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('pemesanan');
     }
 };
